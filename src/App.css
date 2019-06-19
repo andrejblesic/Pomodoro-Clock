@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+body {
+  font-family: pacifico;
+}
+#root {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+body {
+  background: #c6f06f;
+}
+.maincontainer {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  background: white;
+  overflow: hidden;
+  border-radius: 50%;
+  user-select: none;
+  width: 30%;
+  min-width: 450px;
+  margin: auto;
+  margin-top: -32px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.imagecontainer {
+  width: 30%;
+  position: relative;
+  min-width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.leaf {
+  display: inline;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  z-index: -1;
+}
+.header {
+  font-size: 22px;
+  background: #e02107;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  display: inline-block;
+}
+.header h1 {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 20px;
+}
+.inputdivs {
+  padding-left: 15px;
+  padding-right: 15px;
+  background: white;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.inputdiv1 {
+  border-right: 2px solid #e02107;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+.inputdiv1 h3 {
+  margin: 0;
+}
+.inputdiv1 h1 {
+  display: inline-block;
+  margin: 0;
+}
+.inputdiv2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  border-left: 2px solid #e02107;
+  flex-wrap: wrap;
+}
+.inputdiv2 h3 {
+  margin: 0;
+}
+.inputdiv2 h1 {
+  display: inline-block;
+  margin: 0;
+}
+.plus {
+  font-size: 20px;
+}
+.plus:hover {
+  cursor: pointer;
+}
+.minus {
+  font-size: 20px;
+}
+.minus:hover {
+  cursor: pointer;
+}
+.clock {
+  width: 100%;
+}
+.clock h1 {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  position: relative;
+  pointer-events: none;
+  top: -75px;
+  margin: 0;
+  height: 105px;
+  font-size: 140px;
+  margin-bottom: 25px;
+}
+.clock h2 {
+  margin: 0;
+  position: relative;
+  top: -6px;
+}
+.clock {
+  margin-top: 10px;
+  background: #e02107;
+}
+#footer {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+}
+.start-stop {
+  width: 50%;
+  height: 50px;
+}
+.start-stop button {
+  font-family: "Pacifico", sans-sarif;
+  font-size: 20px;
+  outline: none;
+  height: 100%;
+  border: none;
+  width: 100%;
+  background: none;
+  border-radius: 0 0 0 8px;
+  text-align: right;
+  border-right: 2px solid #e02107;
+  padding-right: 25px;
+  font-weight: 600;
+}
+.reset {
+  width: 50%;
+  height: 50px;
+}
+.reset button {
+  outline: none;
+  font-family: "Pacifico", sans-sarif;
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  background: none;
+  border-radius: 0 0 8px 0;
+  text-align: left;
+  border-left: 2px solid #e02107;
+  padding-left: 25px;
+  font-weight: 600;
+}
+button:hover {
+  cursor: pointer;
+}
+button:active {
+  background: #e02107;
+}
+hr {
+  border: 2px solid white;
+}
+@media only screen and (max-width: 600px) {
+  .maincontainer {
+    transform: scaleX(0.7) scaleY(0.7);
+  }
+  .imagecontainer {
+    transform: scaleX(0.7) scaleY(0.7);
+    top: 85px;
+  }
+}
