@@ -53,7 +53,11 @@ class Pomodoro extends React.Component {
       sessionTime: sessionSeconds,
       breakTime: breakSeconds
     }, () => {
-      if (this.state.current === "Session") {this.countdownSession()} else {this.countdownBreak()}
+      if (this.state.current === "Session") {
+        this.countdownSession();
+      } else {
+        this.countdownBreak();
+      }
     });
   }
 
