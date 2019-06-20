@@ -28,20 +28,24 @@ class Pomodoro extends React.Component {
   }
 
   handleStart() {
-    if (document.getElementById("time-left").innerHTML.slice(0, 2) === "00" && document.getElementById("time-left").innerHTML.slice(3) === "00") {
-      var sessionSeconds = this.state.sessionLength*60;
-      var breakSeconds = this.state.breakLength*60;
+    let sessionSeconds;
+    let breakSeconds;
+    let minutes;
+    let seconds;
+    if (this.state.displayTime[0] === "00" && this.state.displayTime[1] === "00") {
+      sessionSeconds = this.state.sessionLength*60;
+      breakSeconds = this.state.breakLength*60;
     } else {
       if (this.state.current === "Session") {
-        var minutes = parseInt(document.getElementById("time-left").innerHTML.slice(0, 2));
-        var seconds = parseInt(document.getElementById("time-left").innerHTML.slice(3));
-        var sessionSeconds = minutes*60 + seconds;
-        var breakSeconds = this.state.breakLength*60;
+        minutes = parseInt(this.state.displayTime[0]);
+        seconds = parseInt(this.state.displayTime[1]);
+        sessionSeconds = minutes*60 + seconds;
+        breakSeconds = this.state.breakLength*60;
       } else if (this.state.current === "Break") {
-        var minutes = parseInt(document.getElementById("time-left").innerHTML.slice(0, 2));
-        var seconds = parseInt(document.getElementById("time-left").innerHTML.slice(3));
-        var breakSeconds = minutes*60 + seconds;
-        var sessionSeconds = this.state.sessionLength*60;
+        minutes = parseInt(this.state.displayTime[0]);
+        seconds = parseInt(this.state.displayTime[1]);
+        breakSeconds = minutes*60 + seconds;
+        sessionSeconds = this.state.sessionLength*60;
       }
     }
     this.setState({
@@ -161,7 +165,7 @@ class Pomodoro extends React.Component {
     return(
       <div id="wrapper">
         <div className="imagecontainer">
-          <img className="leaf" src="https://image.flaticon.com/icons/svg/704/704834.svg" />
+          <img alt="leaf" className="leaf" src="https://image.flaticon.com/icons/svg/704/704834.svg" />
         </div>
         <div className="maincontainer">
           <header className="header">
