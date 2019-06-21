@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 
 //React
-var timeout;
-var timeout2;
+let timeout;
+let timeout2;
 
 class Pomodoro extends React.Component {
   constructor(props) {
@@ -26,22 +26,22 @@ class Pomodoro extends React.Component {
     this.alarm = this.alarm.bind(this);
     this.reset = this.reset.bind(this);
   }
-
+  //start countdown with set session and break times
   handleStart() {
     let sessionSeconds;
     let breakSeconds;
     let minutes;
     let seconds;
-    if (this.state.displayTime[0] === "00" && this.state.displayTime[1] === "00") {
-      sessionSeconds = this.state.sessionLength*60;
-      breakSeconds = this.state.breakLength*60;
+    if (this.state.displayTime[0] === "00" && this.state.displayTime[1] === "00") {//check if clock is running
+      sessionSeconds = this.state.sessionLength*60;//set session length in seconds
+      breakSeconds = this.state.breakLength*60;//set break length in seconds
     } else {
-      if (this.state.current === "Session") {
+      if (this.state.current === "Session") {//check if session is active
         minutes = parseInt(this.state.displayTime[0]);
         seconds = parseInt(this.state.displayTime[1]);
         sessionSeconds = minutes*60 + seconds;
         breakSeconds = this.state.breakLength*60;
-      } else if (this.state.current === "Break") {
+      } else if (this.state.current === "Break") {//check if break is active
         minutes = parseInt(this.state.displayTime[0]);
         seconds = parseInt(this.state.displayTime[1]);
         breakSeconds = minutes*60 + seconds;
@@ -49,7 +49,7 @@ class Pomodoro extends React.Component {
       }
     }
     this.setState({
-      going: !this.state.going,
+      going: !this.state.going, //start/stop the clock
       sessionTime: sessionSeconds,
       breakTime: breakSeconds
     }, () => {
@@ -60,12 +60,12 @@ class Pomodoro extends React.Component {
       }
     });
   }
-
+  //start session countdown
   countdownSession() {
-    if (this.state.going === false) {
+    if (this.state.going === false) {//return immediately if clock is not running
       return;
     }
-    if (this.state.sessionTime < 0) {
+    if (this.state.sessionTime < 0) { //sound alarm if session has run out and start break period
       this.setState({
         sessionTime: this.state.sessionLength*60
       });
@@ -80,12 +80,12 @@ class Pomodoro extends React.Component {
     });
     timeout = setTimeout(this.countdownSession, 1000);
   }
-
+  //start break countdown
   countdownBreak() {
-    if (this.state.going === false) {
+    if (this.state.going === false) { //return immediately if clock is not running
       return;
     }
-    if (this.state.breakTime < 0) {
+    if (this.state.breakTime < 0) { //sound alarm if break has run out and start session period
       this.setState({
         breakTime: this.state.breakLength*60
       });
@@ -100,11 +100,11 @@ class Pomodoro extends React.Component {
     });
     timeout2 = setTimeout(this.countdownBreak, 1000);
   }
-
+  //sound the alarm
   alarm() {
     document.getElementById("beep").play();
   }
-
+  //handle the setting of the break period
   handleBreak(event) {
     if (event.target.innerHTML === "-" && this.state.breakLength < 2) {
      return;
@@ -122,7 +122,7 @@ class Pomodoro extends React.Component {
       });
     }
   }
-
+  //handle the setting of the session period
   handleSession(event) {
     if (event.target.innerHTML === "-" && this.state.sessionLength < 2) {
      return;
@@ -140,13 +140,13 @@ class Pomodoro extends React.Component {
       });
     }
   }
-
+  //stop the clock
   handleStop() {
     this.setState({
       going: !this.state.going
     });
   }
-
+  //reset clock to default settings
   reset() {
     document.getElementById("beep").pause();
     document.getElementById("beep").currentTime = 0;

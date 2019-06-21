@@ -103,12 +103,14 @@ body {
 }
 .plus:hover {
   cursor: pointer;
+  transform: scaleX(1.15) scaleY(1.15);
 }
 .minus {
   font-size: 20px;
 }
 .minus:hover {
   cursor: pointer;
+  transform: scaleX(1.15) scaleY(1.15);
 }
 .clock {
   width: 100%;
@@ -158,9 +160,15 @@ body {
   padding-right: 25px;
   font-weight: 600;
 }
+.start-stop:hover {
+  background: rgb(200, 200, 200);
+}
 .reset {
   width: 50%;
   height: 50px;
+}
+.reset:hover {
+  background: rgb(200, 200, 200);
 }
 .reset button {
   outline: none;
